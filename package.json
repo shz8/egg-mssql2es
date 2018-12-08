@@ -1,6 +1,6 @@
 {
   "name": "egg-mssql2es",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "eggPlugin": {
     "name": "mssql2es"
@@ -47,12 +47,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-mssql2es.git"
+    "url": "git+https://github.com/shz8/egg-mssql2es.git"
   },
   "bugs": {
     "url": "https://github.com/eggjs/egg/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-mssql2es#readme",
+  "homepage": "https://github.com/shz8/egg-mssql2es#readme",
   "author": "",
   "license": "MIT"
 }
