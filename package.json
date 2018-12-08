@@ -1,6 +1,6 @@
 {
   "name": "egg-mssql2es",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "eggPlugin": {
     "name": "mssql2es"
