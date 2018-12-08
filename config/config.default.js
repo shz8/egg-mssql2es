@@ -39,12 +39,12 @@ exports.mssql2es = {
             }
         }
         /*,
-        "emr": {
+        "db2": {
             input: {
                 db: {
-                    server: 'zscdr',
-                    user: 'cdrsa',
-                    password: 'Cdrsa@2014',
+                    server: 'db2',
+                    user: 'sa',
+                    password: 'sa@2014',
                     database: 'ADT',
                 },
                 cfg:{
