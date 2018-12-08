@@ -11,10 +11,16 @@ module.exports = (app) => {
   //console.log(app.config.mssql2es)
   !app.config.mssql2es && assert.fail('confg/config.js缺少配置mssql2es');
   app.logger.info('start service')
+  app.messenger.on('updaterunning', by => {
+    // create an anonymous context to access service
+    const ctx = app.createAnonymousContext();
+    ctx.runInBackground(async () => {
+      await ctx.app.mssql2es.updaterunning(by);
+    });
+  });
   app.beforeStart(async () => {
-    if (app.config.mssql2es.rules) 
-    {
-      app.mssql2es = new mssql2es(app); 
+    if (app.config.mssql2es.rules) {
+      app.mssql2es = new mssql2es(app);
       await app.mssql2es.init();
       //await app.runSchedule('syncdata');
     }
