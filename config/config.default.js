@@ -27,6 +27,7 @@ exports.mssql2es = {
                     max:'0',
                     //pkey: ''
                     //dateformat:'yyyy-MM-dd HH:mm:ss',
+                    interval: 10, // 间隔时间，单位秒
                 }
             }, output: {
                 index: {
@@ -34,8 +35,6 @@ exports.mssql2es = {
                     _type: "pat",
                     _id: "${SeqNo}"
                 }
-            }, schedule: {
-                interval: '1m', // 1 分钟间隔
             }
         }
         /*,
@@ -64,10 +63,7 @@ exports.mssql2es = {
                     _type: "patvisit",
                     //_id:""
                 }
-            },schedule: {
-    interval: '1m', // 1 分钟间隔
-    type: 'all', // 指定所有的 worker 都需要执行
-  }
+            }
         }*/
     }
 };
