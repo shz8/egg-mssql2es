@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 /**
  * egg-mssql2es default config
@@ -14,7 +14,7 @@ exports.mssql2es = {
         "empi": {
             input: {
                 db: {
-                    server: '192.168.0.111',
+                    server: 'db1',
                     user: 'sa',
                     password: '******',
                     database: 'EMPI',
@@ -25,33 +25,33 @@ exports.mssql2es = {
                     fields: 'i.*,[IsEmpiPatient],[EmpiId],[DomainId],[PatientIdInDomain],[EventTime],[EventRecordTime],p.[Status],[Similarity]',
                     order: 'i.SeqNo',
                     max:'0',
-                    //pkey: ''
                     //dateformat:'yyyy-MM-dd HH:mm:ss',
-                    interval: 10, // 间隔时间，单位秒
+                    interval:10,//间隔秒数
                 }
             }, output: {
                 index: {
                     _index: "empi1",
                     _type: "pat",
-                    _id: "<%= SeqNo + '_' + EmpiId %>"
+                    //_id: "<%= SeqNo + '_' +  EmpiId %>",
+                    _id: "<%= SeqNo %>"
                 }
             }
         }
-        /*,
-        "db2": {
+        ,
+        "emr": {
             input: {
                 db: {
                     server: 'db2',
                     user: 'sa',
-                    password: 'sa@2014',
+                    password: '******',
                     database: 'ADT',
                 },
                 cfg:{
                     size:10,
-                    table:'',
-                    fields:'',
-                    order:'',
-                    pkey:'${VisitNumber}'
+                    table:'[PV1601] v(nolock) inner join [PID601] i(nolock) on v.VisitNumber=i.VisitNumber and v.SourceHospital=i.SourceHospital and v.InstitutionName=i.InstitutionName',
+                    fields:`v.*,RegisterTime=case when v.InstitutionName='ZY' then AdmitDtTm else v.u_RegisterDtTm end,FName=rtrim(FName),Sex,LName,Street1,City,[State],HPhone,EthnicGroup,BirthPlace,Citizenship,DOB,SSN,u_PatientId,u_CardNo,u_InsuranceCode,u_CardAssignAuthorityName`,
+                    order:'v.VisitNumber',
+                    interval:10,
                 }
             }, output: {
                 es: {
@@ -64,6 +64,6 @@ exports.mssql2es = {
                     //_id:""
                 }
             }
-        }*/
+        }
     }
 };
