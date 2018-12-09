@@ -1,6 +1,6 @@
 {
   "name": "egg-mssql2es",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "eggPlugin": {
     "name": "mssql2es"
@@ -11,6 +11,7 @@
     "egg-plugin"
   ],
   "dependencies": {
+    "ejs": "^2.6.1",
     "elasticsearch": "^15.2.0",
     "mssql": "^4.3.0"
   },

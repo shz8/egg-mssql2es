@@ -33,7 +33,7 @@ exports.mssql2es = {
                 index: {
                     _index: "empi1",
                     _type: "pat",
-                    _id: "${SeqNo}"
+                    _id: "<%= SeqNo + '_' + EmpiId %>"
                 }
             }
         }
