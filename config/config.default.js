@@ -27,6 +27,7 @@ exports.mssql2es = {
                     max:'0',
                     //dateformat:'yyyy-MM-dd HH:mm:ss',
                     interval:10,//间隔秒数
+					disable:true,//配置该参数为 true 时，这个定时任务不会被启动。
                 }
             }, output: {
                 index: {
